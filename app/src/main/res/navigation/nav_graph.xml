@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/BiblioMusicaFragment">
+
+    <fragment
+        android:id="@+id/BiblioMusicaFragment"
+        android:name="com.example.penide_estefania_examen3t.BiblioMusicaFragment"
+        android:label="BiblioMusica"
+        tools:layout="@layout/fragment_biblio_musica">
+        <action
+            android:id="@+id/action_BiblioMusicaFragment_to_ListadoAlbumsFragment"
+            app:destination="@id/ListadoAlbumsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListadoAlbumsFragment"
+        android:name="com.example.penide_estefania_examen3t.ListadoAlbumsFragment"
+        android:label="Listado albums"
+        tools:layout="@layout/fragment_listado_albums">
+        <argument
+            android:name="genero"
+            app:argType="string"
+            android:defaultValue="z"/>
+        <action
+            android:id="@+id/action_ListadoAlbumsFragment_to_informacionFragment"
+            app:destination="@id/informacionFragment" />
+        <action
+            android:id="@+id/action_ListadoAlbumsFragment_to_BiblioMusicaFragment"
+            app:destination="@id/BiblioMusicaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informacionFragment"
+        android:name="com.example.penide_estefania_examen3t.InformacionFragment"
+        android:label="Información:"
+        tools:layout="@layout/fragment_informacion" >
+        <action
+            android:id="@+id/action_informacionFragment_to_ListadoAlbumsFragment"
+            app:destination="@id/ListadoAlbumsFragment" />
+        <argument
+            android:name="titulo"
+            app:argType="string" />
+        <argument
+            android:name="autor"
+            app:argType="string" />
+        <argument
+            android:name="descripcion"
+            app:argType="string" />
+        <argument
+            android:name="idCaratula"
+            app:argType="integer" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
